@@ -23,9 +23,14 @@ class Bootstrap extends Yaf_Bootstrap_Abstract{
 
 	public function _initRoute(Yaf_Dispatcher $dispatcher) {
 		//在这里注册自己的路由协议,默认使用简单路由
+        $dispatcher->getRequest()->setBaseUri('/weixin');
 	}
 	
 	public function _initView(Yaf_Dispatcher $dispatcher){
 		//在这里注册自己的view控制器，例如smarty,firekylin
+        $config = Yaf_Registry::get('config')->get('smarty');
+        $view = new Ald_Vender_Smarty($config);
+        Yaf_Dispatcher::getInstance()->setView($view);
+        Yaf_Dispatcher::getInstance()->disableView();
 	}
 }
