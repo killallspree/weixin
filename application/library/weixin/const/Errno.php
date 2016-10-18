@@ -8,5 +8,5 @@
 
 class Weixin_Const_Errno {
     const ERR = 1; //系统错误
-    const ERR_SIGN = 1; //签名错误
+    const ERR_SIGN = 2; //签名错误
 }

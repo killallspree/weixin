@@ -8,8 +8,8 @@
 
 class Weixin_Const_Error {
     public static $MAP = array(
-        User_Const_Errno::ERR => '系统错误',
-        User_Const_Errno::ERR_SIGN => '签名错误',
+        Weixin_Const_Errno::ERR => '系统错误',
+        Weixin_Const_Errno::ERR_SIGN => '签名错误',
     );
 
     public static function error($errno){

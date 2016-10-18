@@ -8,5 +8,6 @@
 class IndexController extends Yaf_Controller_Abstract {
     public $actions = array(
         'checksign' => 'actions/index/CheckSign.php',
+        'gettoken' => 'actions/index/GetToken.php',
     );
 }
