@@ -9,6 +9,6 @@ class CheckSignAction extends Ald_Action{
 
     public function doGet($inputData){
         $obj = new Service_Page_Index_CheckSignModel();
-        return $obj -> execute();
+        return $obj -> execute($inputData);
     }
 }

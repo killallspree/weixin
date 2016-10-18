@@ -7,7 +7,17 @@
  */
 
 class Service_Page_Index_CheckSignModel {
-    public function execute(){
-        return '';
+
+    /**
+     * @param $inputData
+     * @return bool
+     */
+    public function execute($inputData){
+        if(Weixin_Sign::checkSign($inputData)){
+            return $inputData['echostr'];
+        }else{
+            return false;
+        }
     }
+
 }
