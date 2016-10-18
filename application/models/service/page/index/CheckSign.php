@@ -14,9 +14,9 @@ class Service_Page_Index_CheckSignModel {
      */
     public function execute($inputData){
         if(Weixin_Sign::checkSign($inputData)){
-            return $inputData['echostr'];
+            echo $inputData['echostr'];die();
         }else{
-            return false;
+            throw new Ald_Exception_AppWarning(Weixin_Const_Errno::ERR_SIGN);
         }
     }
 

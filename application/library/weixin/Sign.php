@@ -8,15 +8,16 @@
 
 class Weixin_Sign{
 
+    public static $token  = '6rv1Qzpl';
+
     /**
      * 生成签名
-     * @param $token
      * @param $timestamp
      * @param $nonce
      * @return string
      */
-    public static function genSign($token, $timestamp, $nonce){
-        $tmpArr = array($token, $timestamp, $nonce);
+    public static function genSign($timestamp, $nonce){
+        $tmpArr = array(self::$token, $timestamp, $nonce);
         sort($tmpArr, SORT_STRING);
         $tmpStr = implode($tmpArr);
         return sha1($tmpStr);
@@ -28,15 +29,14 @@ class Weixin_Sign{
      * @return bool
      */
     public static function checkSign($data){
-        if(!isset($data['token']) || !isset($data['timestamp']) || !isset($data['nonce']) || !isset($data['signature'])){
+        if(!isset($data['timestamp']) || !isset($data['nonce']) || !isset($data['signature'])){
             return false;
         }
-        $genSign = self::genSign($data['token'], $data['timestamp'], $data['nonce']);
+        $genSign = self::genSign($data['timestamp'], $data['nonce']);
         if($genSign != $data['signature']){
             return false;
         }else{
             return true;
         }
     }
-
 }
